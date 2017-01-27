@@ -1,0 +1,73 @@
+// Import all partials
+@require './_*.styl'
+
+html, body
+  width 100%
+  max-width 100%
+  height 100%
+  max-height 100%
+.contain-all
+  height 100vh
+  overflow hidden
+header
+  width 100%
+  text-align center
+  padding 1em 0 .3em
+  h4
+    margin: 0
+
+nav
+  display flex
+  justify-content space-between
+  padding 0.7em 0.1em 0
+  span
+    display: inline-block;
+    float: none;
+    width 100%
+    text-align center
+    color #c3c3c3
+
+.contacts-tab
+  overflow-scrolling touch
+  height 110px
+  white-space nowrap
+  width 100vw
+  overflow-x scroll
+  overflow-y hidden
+  .small-dp
+    background-color #c3c3c3
+    border-radius: 50%
+    margin 1em .5em
+    width 70px
+    height 70px
+    display inline-block
+    overflow hidden
+    img
+      height auto
+      min-height 100%
+      width 100%
+  &::-webkit-scrollbar
+    width 0
+    display none
+.preview-wrap
+  background-color #c3c3c3
+  width 100%
+  height 70vh
+  .latest-message
+    position absolute
+    width 90vw
+    margin 0 5vw
+    bottom: 5vh
+    background-color #FFF
+    padding 1em 1.5em
+    font-size 0.75em
+    .details
+      width 69%
+      h4
+        margin 0px 0 0px
+        font-size 1.4em
+    .more
+      width 30%
+      height: 100%
+      display block
+      background-image url('/images/arrow.png')
