@@ -2,8 +2,7 @@
  * Created by utkarsh on 26/01/17.
  */
 import React, {
-    Component,
-    PropTypes,
+    Component
 } from 'react';
 
 import Header from './msgMain/header'
@@ -47,6 +46,7 @@ class MsgMain extends Component {
 
         this.state = {
             contacts : Contacts,
+            preview: Contacts[Object.keys(Contacts)[0]]
         }
     }
     render() {

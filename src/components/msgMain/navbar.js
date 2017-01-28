@@ -2,8 +2,7 @@
  * Created by utkarsh on 26/01/17.
  */
 import React, {
-    Component,
-    PropTypes,
+    Component
 } from 'react';
 
 class Navbar extends Component {

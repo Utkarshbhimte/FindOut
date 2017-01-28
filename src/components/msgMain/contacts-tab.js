@@ -2,16 +2,15 @@
  * Created by utkarsh on 26/01/17.
  */
 import React, {
-    Component,
-    PropTypes,
+    Component
 } from 'react';
-import Preview from './preview'
 
 class ContactTab extends Component {
     constructor(){
         super();
 
         this.renderSmallDp = this.renderSmallDp.bind(this);
+        this.updatePreview = this.updatePreview.bind(this);
 
     }
 
@@ -25,9 +24,8 @@ class ContactTab extends Component {
         )
     }
 
-    updatePreview(currKey){
+    updatePreview(currKey = Object.keys(this.props.contacts)[0] ){
 
-        console.log(currKey);
 
         const preview = this.props.contacts[currKey];
 
@@ -38,7 +36,7 @@ class ContactTab extends Component {
             backgroundRepeat: "no-repeat"
         };
 
-        console.log(this.props, preview);
+        console.log( preview , backgroundStyle);
 
         return (
             <div className="preview-wrap" style={ backgroundStyle }>
@@ -55,22 +53,17 @@ class ContactTab extends Component {
         );
     }
 
-    // preview = this.props.contacts[Object.keys(this.props.contacts)[0]];
-
     render(){
         return (
             <div>
                 <div className="contacts-tab">
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </div>
-                { this.updatePreview( Object.keys(this.props.contacts)[3] ) }
+                { this.updatePreview() }
             </div>
 
         );
     }
 }
-
-ContactTab.propTypes = {};
-ContactTab.defaultProps = {};
 
 export default ContactTab;
