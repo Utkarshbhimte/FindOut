@@ -4,13 +4,13 @@
 import React, {
     Component
 } from 'react';
+import Preview from './preview'
 
 class ContactTab extends Component {
     constructor(){
         super();
 
         this.renderSmallDp = this.renderSmallDp.bind(this);
-        this.updatePreview = this.renderPreview.bind(this);
 
     }
 
@@ -18,39 +18,10 @@ class ContactTab extends Component {
         const person = this.props.contacts[key];
 
         return(
-            <div key={key} className="small-dp" >
+            <div key={key} className="small-dp" onClick={() => {this.props.updatePreview(key)}}>
                 <img src={person.image} />
             </div>
         )
-    }
-
-    renderPreview(currKey = Object.keys(this.props.contacts)[0] ){
-
-
-        const preview = this.props.contacts[currKey];
-
-        const backgroundStyle = {
-            backgroundImage: "url("+ preview.image +")",
-            backgroundPosition: "center top",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat"
-        };
-
-        console.log( preview , backgroundStyle);
-
-        return (
-            <div className="preview-wrap" style={ backgroundStyle }>
-                {/* <img src={this.props.preview.image} /> */}
-                <div className="latest-message">
-                    <div className="details">
-                        <h4>{ preview.name }</h4>
-                        <span>3rd Year, IS</span>
-                    </div>
-                    <div className="more">
-                    </div>
-                </div>
-            </div>
-        );
     }
 
     render(){
@@ -59,7 +30,7 @@ class ContactTab extends Component {
                 <div className="contacts-tab">
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </div>
-                { this.renderPreview() }
+                <Preview updatePreview={this.props.updatePreview} preview={this.props.preview} />
             </div>
 
         );

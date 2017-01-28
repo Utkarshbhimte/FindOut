@@ -48,13 +48,23 @@ class MsgMain extends Component {
             contacts : Contacts,
             preview: Contacts[Object.keys(Contacts)[0]]
         }
+
+        this.updatePreview = this.updatePreview.bind(this);
     }
+
+    updatePreview(key){
+        const preview = {...this.state.contacts[key]};
+        this.setState({ preview });
+    }
+
     render() {
         return (
             <div className="contain-all">
                 <Header />
                 <Navbar />
-                <ContactTabs contacts={this.state.contacts} />
+                <ContactTabs contacts={this.state.contacts}
+                             preview={this.state.preview}
+                             updatePreview={this.updatePreview}/>
             </div>
         );
     }
