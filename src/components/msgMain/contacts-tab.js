@@ -12,42 +12,56 @@ class ContactTab extends Component {
         super();
 
         this.renderSmallDp = this.renderSmallDp.bind(this);
+
     }
 
     renderSmallDp(key){
         const person = this.props.contacts[key];
+
         return(
-            <div key={key} className="small-dp" onClick={(e, {key}) => {this.updatePreview(e, key)}}>
+            <div key={key} className="small-dp" onClick={(e) => {this.updatePreview(e, key)}}>
                 <img src={person.image} />
             </div>
         )
     }
 
-    // updatePreview(e, key){
-    //     console.log('clicked', key);
-    //     const image = this.props.contacts[key].image;
-    //     const backgroundStyle = {
-    //         backgroundImage: "url(" + { image } + ")"
-    //     };
-    //
-    //     return(
-    //         <div className="preview-wrap" style={ backgroundStyle }>
-    //             <div className="latest-message">
-    //                 <p>Yo! sup? are you free this Sunday?</p>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    updatePreview(e, currKey = Object.keys(this.props.contacts)[0] ){
+
+        console.log(currKey);
+
+        const preview = this.props.contacts[currKey];
+
+        const backgroundStyle = {
+            backgroundImage: "url("+ preview.image +")",
+            backgroundPosition: "center top",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat"
+        };
+        console.log(this.props, preview);
+        return (
+            <div className="preview-wrap" style={ backgroundStyle }>
+                {/*<img src={this.props.preview.image} />*/}
+                <div className="latest-message">
+                    <div className="details">
+                        {/*<h4>{ this.props.preview.name }</h4>*/}
+                        <span>3rd Year, IS</span>
+                    </div>
+                    <div className="more">
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // preview = this.props.contacts[Object.keys(this.props.contacts)[0]];
 
     render(){
-        const preview = this.props.contacts[Object.keys(this.props.contacts)[0]];
-
         return (
             <div>
                 <div className="contacts-tab">
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </div>
-                <Preview preview={ preview }/>
+                { this.updatePreview(Object.keys(this.props.contacts)[0]) }
             </div>
 
         );
