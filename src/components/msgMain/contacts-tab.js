@@ -10,7 +10,7 @@ class ContactTab extends Component {
         super();
 
         this.renderSmallDp = this.renderSmallDp.bind(this);
-        this.updatePreview = this.updatePreview.bind(this);
+        this.updatePreview = this.renderPreview.bind(this);
 
     }
 
@@ -18,9 +18,7 @@ class ContactTab extends Component {
         const person = this.props.contacts[key];
 
         return(
-            <div key={key} className="small-dp"
-                 {/*onClick={() => {this.updatePreview(key)}}*/}
-            >
+            <div key={key} className="small-dp" >
                 <img src={person.image} />
             </div>
         )
