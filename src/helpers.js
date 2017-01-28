@@ -22,3 +22,31 @@ export function getFunName() {
 
   return `${rando(adjectives)}-${rando(adjectives)}-${rando(nouns)}`;
 }
+
+export function getStudentYear(year) {
+    var a = new Date();
+    var currentYear  = a.getFullYear();
+    var month = a.getUTCMonth() + 1;
+
+    if(month < 7){
+        currentYear -= 1;
+    }
+
+    switch (currentYear  - year){
+        case 0:
+            return 'First year';
+            break;
+        case 1:
+            return 'Second year';
+            break;
+        case 2:
+            return 'Third year';
+            break;
+        case 3:
+            return 'Fourth year';
+            break;
+        default:
+            return 'Graduated';
+            console.log(year);
+    }
+}

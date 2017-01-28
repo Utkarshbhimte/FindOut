@@ -5,6 +5,34 @@ import React, {
     Component
 } from 'react';
 
+function getStudentYear(year) {
+    var a = new Date();
+    var currentYear  = a.getFullYear();
+    var month = a.getUTCMonth() + 1;
+
+    if(month < 7){
+        currentYear -= 1;
+    }
+
+    switch (currentYear  - year){
+        case 0:
+            return 'First year';
+            break;
+        case 1:
+            return 'Second year';
+            break;
+        case 2:
+            return 'Third year';
+            break;
+        case 3:
+            return 'Fourth year';
+            break;
+        default:
+            return 'Graduated';
+            console.log(year);
+    }
+}
+
 class Preview extends Component {
     render() {
         // const image = 'https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15894514_1889762547920534_3231168312415608458_n.jpg?oh=a0d458ca8d9833e408fd160304de97b0&oe=59497381';
@@ -26,7 +54,7 @@ class Preview extends Component {
                 <div className="latest-message">
                     <div className="details">
                         <h4>{ preview.name }</h4>
-                        <span>3rd Year, IS</span>
+                        <span>{getStudentYear( preview.admission_year) }, { preview.branch } </span>
                     </div>
                     <div className="more">
                     </div>

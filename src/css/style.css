@@ -277,6 +277,7 @@ nav span {
   background-color: #fff;
   padding: 1em 1.5em;
   font-size: 0.75em;
+  opacity: 0.5;
 }
 .preview-wrap .latest-message .details {
   width: 69%;

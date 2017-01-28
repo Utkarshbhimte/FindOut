@@ -9,7 +9,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <h4>Messages</h4>
+                <h4>FindOut</h4>
             </header>
         );
     }
