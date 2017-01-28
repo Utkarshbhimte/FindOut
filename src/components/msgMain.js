@@ -47,7 +47,6 @@ class MsgMain extends Component {
 
         this.state = {
             contacts : Contacts,
-            preview: Contacts[0]
         }
     }
     render() {
@@ -55,7 +54,7 @@ class MsgMain extends Component {
             <div className="contain-all">
                 <Header />
                 <Navbar />
-                <ContactTabs contacts={this.state.contacts} preview={this.state.preview}/>
+                <ContactTabs contacts={this.state.contacts} />
             </div>
         );
     }

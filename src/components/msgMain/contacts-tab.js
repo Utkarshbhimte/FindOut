@@ -19,13 +19,13 @@ class ContactTab extends Component {
         const person = this.props.contacts[key];
 
         return(
-            <div key={key} className="small-dp" onClick={(e) => {this.updatePreview(e, key)}}>
+            <div key={key} className="small-dp" onClick={() => {this.updatePreview(key)}}>
                 <img src={person.image} />
             </div>
         )
     }
 
-    updatePreview(e, currKey = Object.keys(this.props.contacts)[0] ){
+    updatePreview(currKey){
 
         console.log(currKey);
 
@@ -37,13 +37,15 @@ class ContactTab extends Component {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat"
         };
+
         console.log(this.props, preview);
+
         return (
             <div className="preview-wrap" style={ backgroundStyle }>
-                {/*<img src={this.props.preview.image} />*/}
+                {/* <img src={this.props.preview.image} /> */}
                 <div className="latest-message">
                     <div className="details">
-                        {/*<h4>{ this.props.preview.name }</h4>*/}
+                        <h4>{ preview.name }</h4>
                         <span>3rd Year, IS</span>
                     </div>
                     <div className="more">
@@ -61,7 +63,7 @@ class ContactTab extends Component {
                 <div className="contacts-tab">
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </div>
-                { this.updatePreview(Object.keys(this.props.contacts)[0]) }
+                { this.updatePreview( Object.keys(this.props.contacts)[3] ) }
             </div>
 
         );
