@@ -8,7 +8,32 @@
 .dp-appear
   transform translateY(-100%)
   opacity 0
-  transition all 1s ease-out
+  transition all .7s ease-out
   &.dp-appear-active
     transform translateY(0)
     opacity .5
+
+.preview-enter
+  transition all .5s ease-in-out
+  transform translateY(-100%)
+  opacity 0
+
+  &.preview-enter-active
+    transform translateY(0)
+    opacity 1
+
+.preview-leave
+  z-index -4
+  position absolute
+  top 0
+  opacity 1
+  animation-delay .2s
+  transition all .9s ease-in-out
+  background-color #c3c3c3
+  width 100%
+  transform translateY(0)
+  &.preview-leave-active
+    opacity 0.5
+    transform translateY(100%)
+
+

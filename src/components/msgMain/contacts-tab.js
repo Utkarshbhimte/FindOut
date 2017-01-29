@@ -46,12 +46,19 @@ class ContactTab extends Component {
                     transitionName="dp"
                     transitionAppear={true}
                     transitionAppearTimeout={1000}
-                    transitionEnterTimeout={500 }
+                    transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </CSSTransitionGroup>
-                <Preview updatePreview={this.props.updatePreview} preview={this.props.preview} />
+                <div className="preview-wrap">
+                    <CSSTransitionGroup
+                        transitionName="preview"
+                        transitionEnterTimeout={700}
+                        transitionLeaveTimeout={700}>
+                            <Preview key={ this.props.preview.name } updatePreview={this.props.updatePreview} preview={this.props.preview} />
+                    </CSSTransitionGroup>
+                </div>
             </div>
 
         );
