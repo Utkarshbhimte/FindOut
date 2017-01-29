@@ -4,13 +4,15 @@ import {BrowserRouter, Match, Miss} from 'react-router'
 
 
 import './css/style.css'
-import MsgMain from './components/msgMain'
+import MsgMain from './components/msgMain';
+import LogIn from './components/LogIn';
 
 const Root = () => {
     return (
         <BrowserRouter>
             <div>
                 <Match exactly pattern='/' component={MsgMain}/>
+                <Match exactly pattern='/login' component={LogIn}/>
                 {/*<Match exactly pattern='/store/:storeId' component={App}/>*/}
                 {/*<Miss component={NotFound}/>*/}
             </div>
