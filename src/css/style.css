@@ -11,8 +11,8 @@
   opacity: 0.5;
 }
 .preview-enter {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   opacity: 0;

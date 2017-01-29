@@ -55,7 +55,7 @@ class ContactTab extends Component {
                     <CSSTransitionGroup
                         transitionName="preview"
                         transitionEnterTimeout={700}
-                        transitionLeaveTimeout={700}>
+                        transitionLeaveTimeout={900}>
                             <Preview key={ this.props.preview.name } updatePreview={this.props.updatePreview} preview={this.props.preview} />
                     </CSSTransitionGroup>
                 </div>
