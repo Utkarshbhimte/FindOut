@@ -1,3 +1,15 @@
+.dp-appear {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  opacity: 0;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.dp-appear.dp-appear-active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 0.5;
+}
 @font-face {
   font-family: "haymakerregular";
   src: url("./fonts/haymaker-webfont.eot");
@@ -254,6 +266,12 @@ nav span {
   height: 70px;
   display: inline-block;
   overflow: hidden;
+  opacity: 0.5;
+  -webkit-transition: 0.2s opacity ease-in-out;
+  transition: 0.2s opacity ease-in-out;
+}
+.contacts-tab .small-dp.clicked {
+  opacity: 1;
 }
 .contacts-tab .small-dp img {
   height: auto;

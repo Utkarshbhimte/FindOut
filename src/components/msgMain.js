@@ -4,7 +4,7 @@
 import React, {
     Component
 } from 'react';
-
+import $ from 'jquery'
 import Header from './msgMain/header'
 import Navbar from './msgMain/navbar'
 import ContactTabs from './msgMain/contacts-tab'
@@ -85,7 +85,11 @@ class MsgMain extends Component {
         this.updatePreview = this.updatePreview.bind(this);
     }
 
-    updatePreview(key){
+    updatePreview(e,key){
+        $('.small-dp').removeClass('clicked');
+        console.log(e.target);
+        e.target.className += ' clicked';
+        console.log('check:',this);
         const preview = {...this.state.contacts[key]};
         this.setState({ preview });
     }

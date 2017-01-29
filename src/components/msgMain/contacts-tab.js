@@ -4,7 +4,8 @@
 import React, {
     Component
 } from 'react';
-import Preview from './preview'
+import Preview from './preview';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class ContactTab extends Component {
     constructor(){
@@ -14,12 +15,24 @@ class ContactTab extends Component {
 
     }
 
-    renderSmallDp(key){
+    renderSmallDp(key, i){
         const person = this.props.contacts[key];
 
+        const backgroundStyle = {
+            backgroundImage: "url("+ person.image +")",
+            backgroundPosition: "center top",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat"
+        };
+
         return(
-            <div key={key} className="small-dp" onClick={() => {this.props.updatePreview(key)}}>
-                <img src={person.image} />
+            <div
+                key={key}
+                className={` ${( i==0 ? ' clicked ' : '')} small-dp `}
+                onClick={(e) => {this.props.updatePreview(e, key)}}
+                style={ backgroundStyle }
+                >
+                {/*<img src={person.image} />*/}
             </div>
         )
     }
@@ -27,9 +40,17 @@ class ContactTab extends Component {
     render(){
         return (
             <div>
-                <div className="contacts-tab">
+                <CSSTransitionGroup
+                    className="contacts-tab"
+                    component='div'
+                    transitionName="dp"
+                    transitionAppear={true}
+                    transitionAppearTimeout={1000}
+                    transitionEnterTimeout={500 }
+                    transitionLeaveTimeout={500}
+                >
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
-                </div>
+                </CSSTransitionGroup>
                 <Preview updatePreview={this.props.updatePreview} preview={this.props.preview} />
             </div>
 
