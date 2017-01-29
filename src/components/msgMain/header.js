@@ -9,7 +9,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <h4>FindOut</h4>
+                <h4>FindOut@RNSIT</h4>
             </header>
         );
     }
