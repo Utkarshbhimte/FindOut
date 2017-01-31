@@ -15,15 +15,12 @@ class ContactTab extends Component {
 
     }
 
-
+    // Renders the small DPs on top
     renderSmallDp(key, i){
         const person = this.props.contacts[key];
 
         const backgroundStyle = {
-            backgroundImage: "url("+ person.image +")",
-            backgroundPosition: "center top",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat"
+            backgroundImage: "url("+ person.image +")"
         };
 
         return(
@@ -33,12 +30,13 @@ class ContactTab extends Component {
                 onClick={(e) => {this.props.updatePreview(e, key)}}
                 style={ backgroundStyle }
                 >
-                {/*<img src={person.image} />*/}
             </div>
         )
     }
 
     render(){
+
+        //The array of filtered element keys
         let filteredContact = Object.keys(this.props.contacts).filter(
             (key) => {
                 return this.props.contacts[key].name.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1;
@@ -52,11 +50,12 @@ class ContactTab extends Component {
                     transitionName="dp"
                     transitionAppear={true}
                     transitionAppearTimeout={1000}
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}
+                    transitionEnterTimeout={1}
+                    transitionLeaveTimeout={1}
                 >
                     {filteredContact.map(this.renderSmallDp)}
                 </CSSTransitionGroup>
+
                 <div className="preview-wrap">
                     <CSSTransitionGroup
                         transitionName="preview"

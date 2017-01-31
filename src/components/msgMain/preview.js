@@ -10,6 +10,7 @@ function getStudentYear(year) {
     let currentYear  = a.getFullYear();
     let month = a.getUTCMonth() + 1;
 
+    //because student go to next year on August
     if(month < 7){
         currentYear -= 1;
     }
@@ -35,10 +36,7 @@ class Preview extends Component {
         const preview = this.props.preview;
 
         const backgroundStyle = {
-            backgroundImage: "url("+ preview.image +")",
-            backgroundPosition: "center top",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat"
+            backgroundImage: "url("+ preview.image +")"
         };
 
         return (
@@ -52,7 +50,6 @@ class Preview extends Component {
                 <div className="more">
                 </div>
             </div>
-                {/*<img src={preview.image} alt={preview.name}/>*/}
 
             </div>
         );

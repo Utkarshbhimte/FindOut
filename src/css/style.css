@@ -1,18 +1,16 @@
-.dp-appear {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  opacity: 0;
-  -webkit-transition: all 0.6s ease-in;
-  transition: all 0.6s ease-in;
-}
-.dp-appear.dp-appear-active {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  opacity: 0.5;
-}
 .dp-enter {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 1;
+}
+.dp-enter.dp-enter-active {
+  -webkit-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 0;
 }
 .preview-enter {
   -webkit-transition: all 0.3s ease-in-out;
@@ -302,6 +300,9 @@ nav span {
   opacity: 0.5;
   -webkit-transition: 0.2s opacity ease-in-out;
   transition: 0.2s opacity ease-in-out;
+  backgroundPosition: center top;
+  backgroundSize: cover;
+  backgroundRepeat: no-repeat;
 }
 .contacts-tab .small-dp.clicked {
   opacity: 1;
@@ -328,6 +329,9 @@ nav span {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  backgroundPosition: center top;
+  backgroundSize: cover;
+  backgroundRepeat: no-repeat;
 }
 .preview-wrap .preview img {
   height: 100%;

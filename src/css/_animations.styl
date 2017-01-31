@@ -5,16 +5,31 @@
   appear Must set transitionAppear={true} on animation component
 */
 
-.dp-appear
-  transform translateY(-100%)
-  opacity 0
-  transition all .6s ease-in
-  &.dp-appear-active
-    transform translateY(0)
-    opacity .5
 .dp-enter
-  transition all .3s ease-in-out
+  transition all 3s ease-in-out
+  transform translateX(-100%)
+  opacity 1
+  &.dp-enter-active
+    transition all 3s ease-in-out
+    transform translateX(0)
+    opacity 0
 
+//.dp-leave
+//  transition all 3s ease-in-out
+//  transform translateX(-100%)
+//  opacity 1
+//  &.dp-leave-active
+//    transform translateX(0)
+//    transition all 3s ease-in-out
+//    opacity 0
+//
+//.dp-appear
+//  transform translateY(-100%)
+//  opacity 0
+//  transition all .6s ease-in
+//  &.dp-appear-active
+//    transform translateY(0)
+//    opacity .5
 
 .preview-enter
   transition all .3s ease-in-out
