@@ -8,6 +8,7 @@ import React, {
 import Header from './msgMain/header'
 import Navbar from './msgMain/navbar'
 import ContactTabs from './msgMain/contacts-tab'
+import { FacebookLogin } from 'react-facebook-login-component';
 
 let Contacts = {
     // 'ds3232hgvj23':{
@@ -83,16 +84,38 @@ class MsgMain extends Component {
         }
 
         this.updatePreview = this.updatePreview.bind(this);
+        this.responseFacebook = this.responseFacebook.bind(this);
     }
 
     updatePreview(key){
         const preview = {...this.state.contacts[key]};
         this.setState({ preview });
-    }
+}
+    responseFacebook (response) {
+        console.log(response);
+        const contact = {
+          name : response.name,
+          email : response.email
+        }
+        console.log(contact);
+      const contacts = {...this.state.contacts}
+      const timeStamp = Date.now();
+      contacts[`contact-${timeStamp}`] = contact;
+      this.setState({ contacts })
+  }
 
     render() {
         return (
             <div className="contain-all">
+              <FacebookLogin socialId="1413963141978270"
+                     language="en_US"
+                     scope="public_profile,user_friends,email,user_likes"
+                     fields="name,email,picture"
+                     responseHandler={this.responseFacebook}
+                     xfbml={true}
+                     version="v2.5"
+                     class="facebook-login"
+                     buttonText="FACEBOOK"/>
                 <Header />
                 <Navbar />
                 <ContactTabs contacts={this.state.contacts}
