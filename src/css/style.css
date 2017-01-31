@@ -260,7 +260,7 @@ body {
 header {
   width: 100%;
   text-align: center;
-  padding: 1em 0 0.3em;
+  padding: 0.8em 0;
 }
 header h4 {
   margin: 0;
@@ -272,7 +272,7 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0.7em 0.1em 0;
+  padding: 0;
 }
 nav span {
   display: inline-block;
@@ -280,6 +280,17 @@ nav span {
   width: 100%;
   text-align: center;
   color: #c3c3c3;
+}
+nav input {
+  display: block;
+  outline: none;
+  width: 90vw;
+  margin: 0 auto;
+  border: none;
+  border-bottom: #c3c3c3 1px solid;
+  padding: 0.2em 1em;
+  font-size: 0.8em;
+  color: #000;
 }
 .contacts-tab {
   overflow-scrolling: touch;
@@ -303,6 +314,7 @@ nav span {
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 .contacts-tab .small-dp.clicked {
   opacity: 1;

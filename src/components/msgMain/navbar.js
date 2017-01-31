@@ -12,6 +12,7 @@ class Navbar extends Component {
             <nav>
                 <input type="text"
                        onChange={this.props.updateSearch}
+                       placeholder="Search Here"
                        required/>
             </nav>
         );
