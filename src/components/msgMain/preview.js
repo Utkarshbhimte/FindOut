@@ -17,19 +17,15 @@ function getStudentYear(year) {
     switch (currentYear  - year){
         case 0:
             return 'First year';
-            break;
         case 1:
             return 'Second year';
-            break;
         case 2:
             return 'Third year';
-            break;
         case 3:
             return 'Fourth year';
-            break;
         default:
-            return 'Graduated';
             console.log(year);
+            return 'Graduated';
     }
 }
 

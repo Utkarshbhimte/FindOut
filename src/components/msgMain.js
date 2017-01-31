@@ -91,9 +91,7 @@ class MsgMain extends Component {
 
     updatePreview(e,key){
         $('.small-dp').removeClass('clicked');
-        console.log(e.target);
         e.target.className += ' clicked';
-        console.log('check:',this);
         const preview = {...this.state.contacts[key]};
         this.setState({ preview });
     }
