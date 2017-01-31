@@ -4,7 +4,7 @@
 import React, {
     Component
 } from 'react';
-
+import $ from 'jquery'
 import Header from './msgMain/header'
 import Navbar from './msgMain/navbar'
 import ContactTabs from './msgMain/contacts-tab'
@@ -48,7 +48,7 @@ let Contacts = {
         admission_year: 2015
     },
     'uiou232vf423o':{
-        name: "Saujanya Nagpal",
+        name: "Saujanya  Nagpal",
         image: 'https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15894514_1889762547920534_3231168312415608458_n.jpg?oh=a0d458ca8d9833e408fd160304de97b0&oe=59497381',
         branch: 'IS',
         admission_year: 2014
@@ -79,24 +79,36 @@ class MsgMain extends Component {
 
         this.state = {
             contacts : Contacts,
-            preview: Contacts[Object.keys(Contacts)[0]]
-        }
+            preview: Contacts[Object.keys(Contacts)[0]],
+            search : ''
+        };
 
         this.updatePreview = this.updatePreview.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
-    updatePreview(key){
+
+
+    updatePreview(e,key){
+        $('.small-dp').removeClass('clicked');
+        e.target.className += ' clicked';
         const preview = {...this.state.contacts[key]};
         this.setState({ preview });
+    }
+
+    updateSearch(e){
+        this.setState({ search: e.target.value.substr(0,20) });
     }
 
     render() {
         return (
             <div className="contain-all">
                 <Header />
-                <Navbar />
+                <Navbar search={this.state.search}
+                        updateSearch={this.updateSearch}/>
                 <ContactTabs contacts={this.state.contacts}
                              preview={this.state.preview}
+                             search={this.state.search}
                              updatePreview={this.updatePreview}/>
             </div>
         );

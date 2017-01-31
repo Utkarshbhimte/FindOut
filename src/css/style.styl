@@ -12,20 +12,30 @@ html, body
 header
   width 100%
   text-align center
-  padding 1em 0 .3em
+  padding .8em 0
   h4
     margin: 0
 
 nav
   display flex
   justify-content space-between
-  padding 0.7em 0.1em 0
+  padding 0
   span
     display: inline-block;
     float: none;
     width 100%
     text-align center
     color #c3c3c3
+  input
+    display: block;
+    outline: none;
+    width: 90vw;
+    margin: 0 auto;
+    border: none;
+    border-bottom: #c3c3c3 1px solid;
+    padding: .2em 1em;
+    font-size .8em
+    color: #000
 
 .contacts-tab
   overflow-scrolling touch
@@ -42,6 +52,14 @@ nav
     height 70px
     display inline-block
     overflow hidden
+    opacity .5
+    transition .2s opacity ease-in-out
+    background-position center top
+    background-size cover
+    background-repeat  no-repeat
+    cursor pointer
+    &.clicked
+      opacity 1
     img
       height auto
       min-height 100%
@@ -50,9 +68,19 @@ nav
     width 0
     display none
 .preview-wrap
-  background-color #c3c3c3
+  position relative
   width 100%
-  height 70vh
+  overflow hidden
+  .preview
+    height 71.5vh
+    display: flex;
+    justify-content: center;
+    background-position center top
+    background-size cover
+    background-repeat no-repeat
+    img
+      height 100%
+      width: auto
   .latest-message
     position absolute
     width 90vw
@@ -65,7 +93,7 @@ nav
     .details
       width 69%
       h4
-        margin 0px 0 0px
+        margin 0
         font-size 1.4em
     .more
       width 30%
