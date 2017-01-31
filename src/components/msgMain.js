@@ -9,6 +9,7 @@ import Header from './msgMain/header'
 import Navbar from './msgMain/navbar'
 import ContactTabs from './msgMain/contacts-tab'
 import { FacebookLogin } from 'react-facebook-login-component';
+import base from '../base';
 
 let Contacts = {
     // 'ds3232hgvj23':{
@@ -85,6 +86,12 @@ class MsgMain extends Component {
 
         this.updatePreview = this.updatePreview.bind(this);
         this.responseFacebook = this.responseFacebook.bind(this);
+    }
+    componentWillMount(){
+      this.ref = base.syncState('contacts' ,{
+        context : this,
+        state : 'contacts'
+      })
     }
 
     updatePreview(key){
