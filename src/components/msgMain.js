@@ -88,10 +88,13 @@ class MsgMain extends Component {
         this.responseFacebook = this.responseFacebook.bind(this);
     }
     componentWillMount(){
-      this.ref = base.syncState('contacts' ,{
+      this.ref = base.syncState(`contacts` ,{
         context : this,
         state : 'contacts'
       })
+    }
+    componentWillUnmount(){
+      base.removeBinding(this.ref);
     }
 
     updatePreview(key){
