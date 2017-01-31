@@ -95,7 +95,8 @@ class MsgMain extends Component {
         console.log(response);
         const contact = {
           name : response.name,
-          email : response.email
+          email : response.email,
+          image : response.picture.data.url
         }
         console.log(contact);
       const contacts = {...this.state.contacts}
