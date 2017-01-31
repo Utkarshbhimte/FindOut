@@ -47,9 +47,7 @@ class Preview extends Component {
 
         return (
             <div>
-            <div className="preview" style={ backgroundStyle }>
-
-            </div>
+                <div className="preview" style={ backgroundStyle }></div>
             <div className="latest-message">
                 <div className="details">
                     <h4>{ preview.name }</h4>

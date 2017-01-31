@@ -15,6 +15,7 @@ class ContactTab extends Component {
 
     }
 
+
     renderSmallDp(key, i){
         const person = this.props.contacts[key];
 
@@ -28,7 +29,7 @@ class ContactTab extends Component {
         return(
             <div
                 key={key}
-                className={` ${( i==0 ? ' clicked ' : '')} small-dp `}
+                className={` ${( i===0 ? ' clicked ' : '')} small-dp `}
                 onClick={(e) => {this.props.updatePreview(e, key)}}
                 style={ backgroundStyle }
                 >
@@ -38,6 +39,11 @@ class ContactTab extends Component {
     }
 
     render(){
+        let filteredContact = Object.keys(this.props.contacts).filter(
+            (key) => {
+                return this.props.contacts[key].name.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1;
+            }
+        );
         return (
             <div>
                 <CSSTransitionGroup
@@ -49,13 +55,13 @@ class ContactTab extends Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
-                    {Object.keys(this.props.contacts).map(this.renderSmallDp)}
+                    {filteredContact.map(this.renderSmallDp)}
                 </CSSTransitionGroup>
                 <div className="preview-wrap">
                     <CSSTransitionGroup
                         transitionName="preview"
-                        transitionEnterTimeout={400}
-                        transitionLeaveTimeout={400}>
+                        transitionEnterTimeout={600}
+                        transitionLeaveTimeout={1000}>
                             <Preview key={ this.props.preview.name } updatePreview={this.props.updatePreview} preview={this.props.preview} />
                     </CSSTransitionGroup>
                 </div>
