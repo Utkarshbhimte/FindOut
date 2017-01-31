@@ -118,7 +118,7 @@ class MsgMain extends Component {
     render() {
         return (
             <div className="contain-all">
-              <FacebookLogin socialId="1413963141978270"
+              <FacebookLogin socialId="1669288769751793"
                      language="en_US"
                      scope="public_profile,user_friends,email,user_likes"
                      fields="name,email,picture"
