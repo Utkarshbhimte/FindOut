@@ -300,9 +300,9 @@ nav span {
   opacity: 0.5;
   -webkit-transition: 0.2s opacity ease-in-out;
   transition: 0.2s opacity ease-in-out;
-  backgroundPosition: center top;
-  backgroundSize: cover;
-  backgroundRepeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .contacts-tab .small-dp.clicked {
   opacity: 1;
@@ -329,9 +329,9 @@ nav span {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  backgroundPosition: center top;
-  backgroundSize: cover;
-  backgroundRepeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .preview-wrap .preview img {
   height: 100%;
