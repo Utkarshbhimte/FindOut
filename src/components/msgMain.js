@@ -12,19 +12,6 @@ import ContactTabs from './msgMain/contacts-tab'
 import Login from './login'
 
 let Contacts = {
-    // 'ds3232hgvj23':{
-    //     name: 'Utkarsh Bhimte',
-    //     image: 'https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/14370006_1314403258599808_6975450530949412410_n.jpg?oh=18402b62300e5df720db05fe0fc69548&oe=594910C7',
-    // },
-    // '232hn4v3v5c3':{
-    //     name: 'Sujay Kumar',
-    //     image: 'https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/11000285_1021848081178496_3688005437313443313_n.jpg?oh=48991ec1554fc4ed9932294b041d05b2&oe=594A784A'
-    // },
-    // 'fdsjbk8fdsmbn3':{
-    //     name: 'Prashant Sharma',
-    //     image: 'https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/12688011_10208846811233896_117816568015372803_n.jpg?oh=6fa2a0d4b759905735e453383f58403c&oe=591FF2B0'
-    //     branch: 'IS',
-    //     admission_year: 2014    },
     'uiou232vhj23o':{
         name: "Saujanya Nagpal",
         image: 'https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/15894514_1889762547920534_3231168312415608458_n.jpg?oh=a0d458ca8d9833e408fd160304de97b0&oe=59497381',

@@ -5,6 +5,7 @@ import React, {
     Component
 } from 'react';
 import base from '../base';
+import Preview from './msgMain/preview'
 
 class Login extends Component {
     constructor(){
@@ -31,7 +32,6 @@ class Login extends Component {
     }
 
     authHandler(err, authData){
-        // const user = {...this.props.user};
         const fetchedData  = authData.user.providerData[0];
 
         this.props.updateRegistrationData( fetchedData.displayName, 'displayName' );
@@ -45,36 +45,38 @@ class Login extends Component {
     }
 
     render() {
-
-            return(
-                <div>
-                    <button onClick={() => {this.authenticate('facebook')} }>Sign in with Facebook</button>
-                    <form onSubmit={(e) => {this.addCustomUserData(e)} }
-                          ref={(input) => this.registrationForm = input}>
-                        <input type="number" ref={(input) => this.admission_year = input}/>
-                        <select  ref={(input) => this.branch = input} >
-                            <option value="EEE">EEE</option>
-                            <option value="IS">IS</option>
-                            <option value="CS">CS</option>
-                            <option value="IT">IT</option>
-                            <option value="ECE">ECE</option>
-                            <option value="MECH">MECH</option>
-                            <option value="CIVIL">CIVIL</option>
-                        </select>
-                    </form>
-
-                    <div>
-                        <div>
-                            <h4>Your Data:</h4>
-                            <img src={this.props.user.image} alt={this.props.user.name}/>
-                            <span>{this.props.user.name}</span>
-                        </div>
+            if(this.props.user.displayName === null){
+             return(
+                 <div className="login-step-one">
+                     <button onClick={() => {this.authenticate('facebook')} }>Sign in with Facebook</button>
+                 </div>
+             )
+            }else if(this.props.user.displayName !== null && this.props.user.branch === null){
+                return(
+                    <div className="login-step-two">
+                        <form onSubmit={(e) => {this.addCustomUserData(e)} }
+                              ref={(input) => this.registrationForm = input}>
+                            <input type="number" ref={(input) => this.admission_year = input}/>
+                            <select  ref={(input) => this.branch = input} >
+                                <option value="EEE">EEE</option>
+                                <option value="IS">IS</option>
+                                <option value="CS">CS</option>
+                                <option value="IT">IT</option>
+                                <option value="ECE">ECE</option>
+                                <option value="MECH">MECH</option>
+                                <option value="CIVIL">CIVIL</option>
+                            </select>
+                            <input type="submit" value="Finish this shit already"/>
+                        </form>
                     </div>
-
-                </div>
-
-            );
-
+                )
+            }else if(this.props.user.branch !== null){
+                return(
+                    <div className="login-step-three">
+                        <Preview preview={this.props.user}/>
+                    </div>
+                )
+            }
     }
 }
 

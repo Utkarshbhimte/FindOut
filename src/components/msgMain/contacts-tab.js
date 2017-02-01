@@ -30,7 +30,8 @@ class ContactTab extends Component {
                 <div className="contacts-tab">
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </div>
-                <Preview updatePreview={this.props.updatePreview} preview={this.props.preview} />
+                <Preview updatePreview={this.props.updatePreview}
+                         preview={this.props.preview} />
             </div>
 
         );

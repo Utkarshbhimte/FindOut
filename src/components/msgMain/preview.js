@@ -6,9 +6,9 @@ import React, {
 } from 'react';
 
 function getStudentYear(year) {
-    var a = new Date();
-    var currentYear  = a.getFullYear();
-    var month = a.getUTCMonth() + 1;
+    let a = new Date();
+    let currentYear  = a.getFullYear();
+    let month = a.getUTCMonth() + 1;
 
     if(month < 7){
         currentYear -= 1;
@@ -41,7 +41,7 @@ class Preview extends Component {
         console.log(this.props.preview);
 
         const backgroundStyle = {
-            backgroundImage: "url("+ preview.image +")",
+            backgroundImage: "url('http://graph.facebook.com/"+ preview.fbUid +"/picture?width=600&height=700')",
             backgroundPosition: "center top",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat"
@@ -53,8 +53,8 @@ class Preview extends Component {
             <div className="preview-wrap" style={ backgroundStyle }>
                 <div className="latest-message">
                     <div className="details">
-                        <h4>{ preview.name }</h4>
-                        <span>{getStudentYear( preview.admission_year) }, { preview.branch } </span>
+                        <h4>{ preview.displayName }</h4>
+                        <span>{getStudentYear(preview.admission_year) }, { preview.branch } </span>
                     </div>
                     <div className="more">
                     </div>
