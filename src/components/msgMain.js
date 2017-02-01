@@ -94,13 +94,13 @@ class MsgMain extends Component {
     // This is for Authentication flow
 
     updateRegistrationData( src, dest ){
-        let User = {...this.state.user};
-        console.log(User);
+        let user = this.state.user;
+        console.log(user);
         console.log('dest:', dest);
         console.log('src:', src);
-        User[dest] = src;
-        console.log(User);
-        this.setState({user: User});
+        user[dest] = src;
+        console.log(user);
+        this.setState({user});
     }
 
 

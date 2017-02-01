@@ -21,9 +21,6 @@ class Login extends Component {
         this.props.updateRegistrationData( parseInt(this.admission_year.value), 'admission_year');
         this.props.updateRegistrationData( this.branch.value, 'branch');
 
-        // this.props.user.admission_year = this.admission_year;
-        // this.props.user.branch = this.branch;
-
         this.registrationForm.reset();
     }
 
@@ -36,11 +33,11 @@ class Login extends Component {
     authHandler(err, authData){
         // const user = {...this.props.user};
         const fetchedData  = authData.user.providerData[0];
-        console.log('fetched Data',fetchedData);
 
-        this.props.updateRegistrationData('name', fetchedData.name);
-
-        console.log('props: ', this.props.user);
+        this.props.updateRegistrationData( fetchedData.displayName, 'displayName' );
+        this.props.updateRegistrationData( fetchedData.email , 'email');
+        this.props.updateRegistrationData( fetchedData.photoURL, 'photoURL');
+        this.props.updateRegistrationData( fetchedData.uid, 'fbUid');
 
         if(err){
             console.log(err);
@@ -69,8 +66,8 @@ class Login extends Component {
                     <div>
                         <div>
                             <h4>Your Data:</h4>
-                            {/*<img src={this.props.user.image} alt={this.props.user.name}/>*/}
-                            {/*<span>{this.props.user.name}</span>*/}
+                            <img src={this.props.user.image} alt={this.props.user.name}/>
+                            <span>{this.props.user.name}</span>
                         </div>
                     </div>
 
