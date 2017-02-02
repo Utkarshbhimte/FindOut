@@ -1,20 +1,27 @@
 // Import all partials
 @require './_*.styl'
+@require 'skeleton.css'
 
 html, body
   width 100%
   max-width 100%
   height 100%
   max-height 100%
+  #main, div[data-reactroot]
+    height 100%
+    width 100%
+  input
+    height auto
 .contain-all
   height 100vh
   overflow hidden
 header
   width 100%
   text-align center
-  padding .8em 0
+  padding .3em 0
+  height 15%
   h4
-    margin: 0
+    margin: .5em 0
 
 nav
   display flex
@@ -37,40 +44,38 @@ nav
     font-size .8em
     color: #000
 
-.contacts-tab
-  overflow-scrolling touch
-  height 110px
-  white-space nowrap
-  width 100vw
-  overflow-x scroll
-  overflow-y hidden
-  .small-dp
-    background-color #c3c3c3
-    border-radius: 50%
-    margin 1em .5em
-    width 70px
-    height 70px
-    display inline-block
-    overflow hidden
-    opacity .5
-    transition .2s opacity ease-in-out
-    background-position center top
-    background-size cover
-    background-repeat  no-repeat
-    cursor pointer
-    &.clicked
-      opacity 1
-    img
-      height auto
-      min-height 100%
-      width 100%
-  &::-webkit-scrollbar
-    width 0
-    display none
+.contacts-tab-wrap
+  height 86%
+  .contacts-tab
+    overflow-scrolling touch
+    height 110px
+    white-space nowrap
+    width 100vw
+    overflow-x scroll
+    overflow-y hidden
+    .small-dp
+      background-color #c3c3c3
+      border-radius: 50%
+      margin 1em .5em
+      width 70px
+      height 70px
+      display inline-block
+      overflow hidden
+      img
+        height auto
+        min-height 100%
+        width 100%
+    &::-webkit-scrollbar
+      width 0
+      display none
+
 .preview-wrap
-  position relative
   width 100%
   overflow hidden
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height 70.5vh
   .preview
     height 71.5vh
     display: flex;
@@ -100,3 +105,134 @@ nav
       height: 100%
       display block
       background-image url('/images/arrow.png')
+.login-wrap
+  height 100%
+  width 100%
+  .login-step-one,
+  .login-step-two,
+  .login-step-three
+    height 100%
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+  .login-step-one
+    button
+      color #3b5998
+      transition all .3s ease-in-out
+      background-color white
+      outline none
+      border 1px solid #3b5998
+      padding: .4em 1em
+      height auto
+      &:hover
+        box-shadow: inset 500px 0 0 0 #3b5998
+        padding: .4em 1em
+        color: white
+        overflow hidden
+  .login-step-two
+    text-align center
+    *
+      display block
+    form
+      width 80%
+      *
+        margin 1em auto
+      input[type="number"], select
+        width 100%
+  .login-step-three
+    align-items flex-end
+    flex-direction column
+    width 100%
+    .confirm-wrap
+      height 25vh
+      width 100%
+      display flex
+      flex-direction column
+      justify-content center
+      align-items center
+      button
+        height auto
+        padding .5em .8em
+        span
+          display block
+    .preview-wrap
+      height 75vh
+
+#error
+  display none
+
+@media (min-width: 480px)
+  .contain-all,.login-wrap
+    display none
+  #error
+    height 100%
+    width 100%
+    display flex
+    justify-content center
+    flex-direction column
+    align-items center
+
+.h-full
+  height 100%
+
+.hamburger-icon
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  position: absolute
+  top: 2.5vh;
+  right: 5vw;
+  height: 30px;
+  width: 30px;
+  cursor: pointer
+  z-index: 9
+  .bar
+    height: 3px
+    width: 100%
+    background-color: #222
+    border-radius: 2em
+    transition: all .3s ease-in-out
+  &.active
+    position: fixed
+    .bar
+      background-color: #222
+    .bar:nth-child(2)
+      transform: scale(0)
+    .bar:nth-child(1)
+      transform: rotate(-45deg)
+      transform-origin: right
+      height: 3px
+    .bar:nth-child(3)
+      transform: rotate(45deg) translateY(2px)
+      transform-origin: right
+
+// sidenav
+.sidenav
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  width: 300px
+  background-color: #FFF
+  color: black
+  height: 100%
+  z-index: 4
+  transform: translateX(350px)
+  transition: transform .3s ease-out
+  &.active
+    transform: translateX(0)
+  ul
+    margin: 4em 0
+    list-style: none
+    .logo
+      width: 150px
+      height: 150px
+      background-color: transparentize(black, .9)
+      border-radius: 50%
+      display: block
+      margin: 2em auto
+      font-size: 24px
+    li
+      cursor: pointer
+      padding 0 2em

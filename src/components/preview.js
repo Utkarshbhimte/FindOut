@@ -25,7 +25,6 @@ function getStudentYear(year) {
         case 3:
             return 'Fourth year';
         default:
-            console.log(year);
             return 'Graduated';
     }
 }
@@ -36,27 +35,21 @@ class Preview extends Component {
         const preview = this.props.preview;
 
         const backgroundStyle = {
-            backgroundImage: "url("+ preview.image +")"
+            backgroundImage: "url('http://graph.facebook.com/"+ preview.fbUid +"/picture?width=600&height=700')",
         };
 
         return (
-            <div>
-                <div className="preview" style={ backgroundStyle }></div>
-            <div className="latest-message">
-                <div className="details">
-                    <h4>{ preview.name }</h4>
-                    <span>{getStudentYear( preview.admission_year) }, { preview.branch } </span>
-                </div>
-                <div className="more">
-                </div>
-            </div>
-
+            <div className="preview-wrap" style={ backgroundStyle }>
+                <div className="latest-message">
+                    <div className="details">
+                        <h4>{ preview.displayName }</h4>
+                        <span>{getStudentYear(preview.admission_year) }, { preview.branch } </span>
+                    </div>
+                <div className="more"></div>
+              </div>
             </div>
         );
     }
 }
-
-Preview.propTypes = {};
-Preview.defaultProps = {};
 
 export default Preview;
