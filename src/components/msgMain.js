@@ -9,6 +9,7 @@ import base from '../base';
 import Header from './msgMain/header'
 import ContactTabs from './msgMain/contacts-tab'
 import Login from './login'
+import _ from 'lodash'
 
 let Contacts = {
     'jehrdqt9zvjzh7a4f5hfr':{
@@ -50,6 +51,10 @@ class MsgMain extends Component {
     componentWillMount(){
 
         let LocalStorageUserRef = localStorage.getItem('user');
+
+        const localUser = JSON.parse(LocalStorageUserRef);
+
+        console.log(_.every(this.state.contacts, (elem) => { console.log(elem.fbUid,' vs ', localUser.fbUid ); return elem.fbUid === localUser.fbUid}));
 
         if(LocalStorageUserRef){
             this.setState({

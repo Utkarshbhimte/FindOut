@@ -12,10 +12,7 @@ function getStudentYear(year) {
 
     if(month > 7){
         currentYear += 1;
-        console.log('inc')
     }
-
-    console.log(currentYear, year, currentYear  - year);
 
     switch (currentYear  - year){
         case 0:
@@ -27,7 +24,6 @@ function getStudentYear(year) {
         case 3:
             return 'Fourth year';
         default:
-            console.log(year);
             return 'Graduated';
     }
 }
