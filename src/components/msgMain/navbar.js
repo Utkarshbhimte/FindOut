@@ -6,12 +6,14 @@ import React, {
 } from 'react';
 
 class Navbar extends Component {
+
     render() {
         return (
             <nav>
-                <span>*</span>
-                <span>*</span>
-                <span>*</span>
+                <input type="text"
+                       onChange={this.props.updateSearch}
+                       placeholder="Search Here"
+                       required/>
             </nav>
         );
     }

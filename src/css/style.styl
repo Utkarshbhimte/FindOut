@@ -26,13 +26,23 @@ header
 nav
   display flex
   justify-content space-between
-  padding 0.7em 0.1em 0
+  padding 0
   span
     display: inline-block;
     float: none;
     width 100%
     text-align center
     color #c3c3c3
+  input
+    display: block;
+    outline: none;
+    width: 90vw;
+    margin: 0 auto;
+    border: none;
+    border-bottom: #c3c3c3 1px solid;
+    padding: .2em 1em;
+    font-size .8em
+    color: #000
 
 .contacts-tab-wrap
   height 86%
@@ -60,9 +70,19 @@ nav
       display none
 
 .preview-wrap
-  background-color #c3c3c3
+  position relative
   width 100%
-  height 70vh
+  overflow hidden
+  .preview
+    height 71.5vh
+    display: flex;
+    justify-content: center;
+    background-position center top
+    background-size cover
+    background-repeat no-repeat
+    img
+      height 100%
+      width: auto
   .latest-message
     position absolute
     width 90vw
@@ -149,5 +169,3 @@ nav
     justify-content center
     flex-direction column
     align-items center
-
-

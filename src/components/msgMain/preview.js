@@ -10,6 +10,7 @@ function getStudentYear(year) {
     let currentYear  = a.getFullYear();
     let month = a.getUTCMonth() + 1;
 
+    //because student go to next year on August
     if(month > 7){
         currentYear += 1;
     }
@@ -35,9 +36,6 @@ class Preview extends Component {
 
         const backgroundStyle = {
             backgroundImage: "url('http://graph.facebook.com/"+ preview.fbUid +"/picture?width=600&height=700')",
-            backgroundPosition: "center top",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat"
         };
 
         return (
@@ -47,15 +45,11 @@ class Preview extends Component {
                         <h4>{ preview.displayName }</h4>
                         <span>{getStudentYear(preview.admission_year) }, { preview.branch } </span>
                     </div>
-                    <div className="more">
-                    </div>
-                </div>
+                <div className="more"></div>
+              </div>
             </div>
         );
     }
 }
-
-Preview.propTypes = {};
-Preview.defaultProps = {};
 
 export default Preview;

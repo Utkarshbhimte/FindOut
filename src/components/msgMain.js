@@ -5,7 +5,7 @@ import React, {
     Component
 } from 'react';
 import base from '../base';
-
+import $ from 'jquery'
 import Header from './msgMain/header'
 import ContactTabs from './msgMain/contacts-tab'
 import Login from './login'
@@ -30,6 +30,7 @@ class MsgMain extends Component {
         this.state = {
             contacts : Contacts,
             preview: Contacts[Object.keys(Contacts)[0]],
+            search : '',
             userRegistrationConfirm: false,
             user: {
                 admission_year:2013,
@@ -42,10 +43,10 @@ class MsgMain extends Component {
             }
         };
 
-        this.updatePreview = this.updatePreview.bind(this);
         this.updateRegistrationData = this.updateRegistrationData.bind(this);
         this.confirmRegistration = this.confirmRegistration.bind(this);
-
+        this.updatePreview = this.updatePreview.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
     componentWillMount(){
@@ -73,12 +74,18 @@ class MsgMain extends Component {
     componentWillUnmount(){
         base.removeBinding(this.ref);
     }
+    }
 
-    updatePreview(key){
+    updatePreview(e,key){
+        $('.small-dp').removeClass('clicked');
+        e.target.className += ' clicked';
         const preview = {...this.state.contacts[key]};
         this.setState({ preview });
     }
 
+    updateSearch(e){
+        this.setState({ search: e.target.value.substr(0,20) });
+    }
 
     // This is for Authentication flow
     updateRegistrationData( src, dest ){
@@ -126,6 +133,7 @@ class MsgMain extends Component {
                         <Header />
                         <ContactTabs contacts={this.state.contacts}
                                      preview={this.state.preview}
+                                     search={this.state.search}
                                      updatePreview={this.updatePreview}/>
                     </div>
                     {this.renderError()}
@@ -139,6 +147,7 @@ class MsgMain extends Component {
             <div id="error">
                 <h4>Sorry but this site should only be visited on mobile devices..</h4>
                 <span><i>and also this is an alpha version.</i></span>
+
             </div>
         )
     }
