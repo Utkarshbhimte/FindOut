@@ -6,8 +6,8 @@ import React, {
 } from 'react';
 import base from '../base';
 import $ from 'jquery'
-import Header from './msgMain/header'
-import ContactTabs from './msgMain/contacts-tab'
+import Header from './header'
+import ContactTabs from './contacts-tab'
 import Login from './login'
 import _ from 'lodash'
 

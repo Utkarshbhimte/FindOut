@@ -18,10 +18,10 @@ html, body
 header
   width 100%
   text-align center
-  padding 1em 0 .3em
+  padding .3em 0
   height 15%
   h4
-    margin: 0
+    margin: .5em 0
 
 nav
   display flex
@@ -175,3 +175,64 @@ nav
 
 .h-full
   height 100%
+
+.hamburger-icon
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  position: absolute
+  top: 2.5vh;
+  right: 5vw;
+  height: 30px;
+  width: 30px;
+  cursor: pointer
+  z-index: 9
+  .bar
+    height: 3px
+    width: 100%
+    background-color: #222
+    border-radius: 2em
+    transition: all .3s ease-in-out
+  &.active
+    position: fixed
+    .bar
+      background-color: #222
+    .bar:nth-child(2)
+      transform: scale(0)
+    .bar:nth-child(1)
+      transform: rotate(-45deg)
+      transform-origin: right
+      height: 3px
+    .bar:nth-child(3)
+      transform: rotate(45deg) translateY(2px)
+      transform-origin: right
+
+// sidenav
+.sidenav
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  width: 300px
+  background-color: #FFF
+  color: black
+  height: 100%
+  z-index: 4
+  transform: translateX(350px)
+  transition: transform .3s ease-out
+  &.active
+    transform: translateX(0)
+  ul
+    margin: 4em 0
+    list-style: none
+    .logo
+      width: 150px
+      height: 150px
+      background-color: transparentize(black, .9)
+      border-radius: 50%
+      display: block
+      margin: 2em auto
+      font-size: 24px
+    li
+      cursor: pointer
+      padding 0 2em

@@ -272,11 +272,11 @@ body input {
 header {
   width: 100%;
   text-align: center;
-  padding: 1em 0 0.3em;
+  padding: 0.3em 0;
   height: 15%;
 }
 header h4 {
-  margin: 0;
+  margin: 0.5em 0;
 }
 nav {
   display: -webkit-box;
@@ -498,4 +498,91 @@ nav input {
 }
 .h-full {
   height: 100%;
+}
+.hamburger-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  top: 2.5vh;
+  right: 5vw;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  z-index: 9;
+}
+.hamburger-icon .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #222;
+  border-radius: 2em;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger-icon.active {
+  position: fixed;
+}
+.hamburger-icon.active .bar {
+  background-color: #222;
+}
+.hamburger-icon.active .bar:nth-child(2) {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+.hamburger-icon.active .bar:nth-child(1) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  height: 3px;
+}
+.hamburger-icon.active .bar:nth-child(3) {
+  -webkit-transform: rotate(45deg) translateY(2px);
+          transform: rotate(45deg) translateY(2px);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+.sidenav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  background-color: #fff;
+  color: #000;
+  height: 100%;
+  z-index: 4;
+  -webkit-transform: translateX(350px);
+          transform: translateX(350px);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+.sidenav.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.sidenav ul {
+  margin: 4em 0;
+  list-style: none;
+}
+.sidenav ul .logo {
+  width: 150px;
+  height: 150px;
+  background-color: transparentize(#000, 0.9);
+  border-radius: 50%;
+  display: block;
+  margin: 2em auto;
+  font-size: 24px;
+}
+.sidenav ul li {
+  cursor: pointer;
+  padding: 0 2em;
 }

@@ -5,7 +5,7 @@ import React, {
     Component
 } from 'react';
 import base from '../base';
-import Preview from './msgMain/preview'
+import Preview from './preview'
 
 class Login extends Component {
     constructor(){
