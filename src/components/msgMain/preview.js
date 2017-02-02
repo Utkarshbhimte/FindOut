@@ -11,8 +11,8 @@ function getStudentYear(year) {
     let month = a.getUTCMonth() + 1;
 
     //because student go to next year on August
-    if(month > 7){
-        currentYear += 1;
+    if(month < 7){
+        currentYear -= 1;
     }
 
     switch (currentYear  - year){

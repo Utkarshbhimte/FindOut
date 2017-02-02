@@ -56,10 +56,13 @@ class MsgMain extends Component {
         if(LocalStorageUserRef){
             const localUser = JSON.parse(LocalStorageUserRef);
             console.log('user already exist?',_.every(this.state.contacts, (elem) => { console.log(elem.fbUid,' vs ', localUser.fbUid ); return elem.fbUid === localUser.fbUid}));
-            this.setState({
-                user: JSON.parse(LocalStorageUserRef),
-                userRegistrationConfirm: true
-            });
+
+            if(_.every(this.state.contacts, (elem) => { console.log(elem.fbUid,' vs ', localUser.fbUid ); return elem.fbUid === localUser.fbUid})){
+                this.setState({
+                    user: JSON.parse(LocalStorageUserRef),
+                    userRegistrationConfirm: true
+                });
+            }
         }
 
         this.ref = base.syncState(`contacts` ,{
