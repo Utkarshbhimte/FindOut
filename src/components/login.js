@@ -80,7 +80,7 @@ class Login extends Component {
                     <div className="login-step-three">
                         <div className="confirm-wrap">
                             <span>This is what your profile will look like</span>
-                            <button className="button-primary"> <span>yeah yeah whatever,</span>
+                            <button className="button-primary" onClick={this.props.confirmRegistration}> <span>yeah yeah whatever,</span>
                                 <span>proceed already</span> </button>
                         </div>
                         <Preview preview={this.props.user}/>

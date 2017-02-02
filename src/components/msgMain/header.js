@@ -4,15 +4,20 @@
 import React, {
     Component
 } from 'react';
+import Navbar from './navbar'
 
 class Header extends Component {
     render() {
         return (
             <header>
                 <h4>FindOut@RNSIT</h4>
+                <Navbar />
             </header>
         );
     }
 }
+
+Header.propTypes = {};
+Header.defaultProps = {};
 
 export default Header;

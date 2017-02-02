@@ -19,14 +19,14 @@ class ContactTab extends Component {
 
         return(
             <div key={key} className="small-dp" onClick={() => {this.props.updatePreview(key)}}>
-                <img src={person.image} />
+                <img src={person.photoURL} />
             </div>
         )
     }
 
     render(){
         return (
-            <div>
+            <div className="contacts-tab-wrap">
                 <div className="contacts-tab">
                     {Object.keys(this.props.contacts).map(this.renderSmallDp)}
                 </div>
