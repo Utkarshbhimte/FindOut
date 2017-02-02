@@ -1,11 +1,17 @@
 // Import all partials
 @require './_*.styl'
+@require 'skeleton.css'
 
 html, body
   width 100%
   max-width 100%
   height 100%
   max-height 100%
+  #main, div[data-reactroot]
+    height 100%
+    width 100%
+  input
+    height auto
 .contain-all
   height 100vh
   overflow hidden
@@ -73,3 +79,60 @@ nav
       height: 100%
       display block
       background-image url('/images/arrow.png')
+.login-wrap
+  height 100%
+  width 100%
+  .login-step-one,
+  .login-step-two,
+  .login-step-three
+    height 100%
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+  .login-step-one
+    button
+      color #3b5998
+      transition all .3s ease-in-out
+      background-color white
+      outline none
+      border 1px solid #3b5998
+      padding: .4em 1em
+      height auto
+      &:hover
+        box-shadow: inset 500px 0 0 0 #3b5998
+        padding: .4em 1em
+        color: white
+        overflow hidden
+  .login-step-two
+    text-align center
+    *
+      display block
+    form
+      width 80%
+      *
+        margin 1em auto
+      input[type="number"], select
+        width 100%
+  .login-step-three
+    align-items flex-end
+    flex-direction column
+    width 100%
+    .confirm-wrap
+      height 20vh
+      width 100%
+      display flex
+      flex-direction column
+      justify-content center
+      align-items center
+      button
+        height auto
+        padding .5em .8em
+        span
+          display block
+    .preview-wrap
+      height 80vh
+
+
+
+

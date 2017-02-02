@@ -5,6 +5,7 @@ import React, {
     Component
 } from 'react';
 import base from '../base';
+import _ from 'lodash';
 
 import Header from './msgMain/header'
 import Navbar from './msgMain/navbar'
@@ -45,13 +46,13 @@ class MsgMain extends Component {
         this.state = {
             contacts : Contacts,
             preview: Contacts[Object.keys(Contacts)[0]],
-            uid: null,
             user: {
                 displayName: null,
                 email: null,
                 photoURL: null,
                 admission_year: null,
                 branch: null,
+                uid: null,
                 fbUid: null
             }
         };
@@ -79,27 +80,19 @@ class MsgMain extends Component {
 
 
     // This is for Authentication flow
-
     updateRegistrationData( src, dest ){
         let user = this.state.user;
-        console.log(user);
-        console.log('dest:', dest);
-        console.log('src:', src);
         user[dest] = src;
-        console.log(user);
         this.setState({user});
     }
 
 
-    // Render Fucntion
-
     render() {
-
-        if(this.state.uid === null){
+        console.log('Full user data gathered: ' ,_.every(this.state.user, function(elem) { return elem !== null; }));
+        if(_.reject(this.state.user, ['default', null])){
             return(
-                <div>
-                    <Login uid={this.state.uid}
-                           user={this.state.user}
+                <div className="login-wrap">
+                    <Login user={this.state.user}
                            updateRegistrationData={this.updateRegistrationData}
                     />
                 </div>

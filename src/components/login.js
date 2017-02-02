@@ -34,10 +34,13 @@ class Login extends Component {
     authHandler(err, authData){
         const fetchedData  = authData.user.providerData[0];
 
+        console.log(authData);
+
         this.props.updateRegistrationData( fetchedData.displayName, 'displayName' );
         this.props.updateRegistrationData( fetchedData.email , 'email');
         this.props.updateRegistrationData( fetchedData.photoURL, 'photoURL');
         this.props.updateRegistrationData( fetchedData.uid, 'fbUid');
+        this.props.updateRegistrationData( authData.user.uid, 'uid');
 
         if(err){
             console.log(err);
@@ -56,8 +59,10 @@ class Login extends Component {
                     <div className="login-step-two">
                         <form onSubmit={(e) => {this.addCustomUserData(e)} }
                               ref={(input) => this.registrationForm = input}>
-                            <input type="number" ref={(input) => this.admission_year = input}/>
-                            <select  ref={(input) => this.branch = input} >
+                            <h4>{`Hey there ${(this.props.user.displayName).split(' ')[0]},`}</h4>
+                            <input type="number" ref={(input) => this.admission_year = input} placeholder="Admission Year"/>
+                            <select  ref={(input) => this.branch = input} placeholder="What is your branch?">
+                                <option value="" disabled="disabled">Choose your Branch</option>
                                 <option value="EEE">EEE</option>
                                 <option value="IS">IS</option>
                                 <option value="CS">CS</option>
@@ -66,13 +71,18 @@ class Login extends Component {
                                 <option value="MECH">MECH</option>
                                 <option value="CIVIL">CIVIL</option>
                             </select>
-                            <input type="submit" value="Finish this shit already"/>
+                            <input type="submit" value="Finish this already"/>
                         </form>
                     </div>
                 )
             }else if(this.props.user.branch !== null){
                 return(
                     <div className="login-step-three">
+                        <div className="confirm-wrap">
+                            <span>This is what your profile will look like</span>
+                            <button className="button-primary"> <span>yeah yeah whatever,</span>
+                                <span>proceed already</span> </button>
+                        </div>
                         <Preview preview={this.props.user}/>
                     </div>
                 )
