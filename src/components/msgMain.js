@@ -33,13 +33,13 @@ class MsgMain extends Component {
             search : '',
             userRegistrationConfirm: false,
             user: {
-                admission_year:2013,
-                branch:"EEE",
-                displayName:"Utkarsh Bhimte",
-                email:"utkarshbhimte95@gmail.com",
-                fbUid:"1508539349186197",
-                photoURL:"https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/14370006_1314403258599808_6975450530949412410_n.jpg?oh=0637d1354d11230c4ce30ee83ca99247&oe=59411863",
-                uid:"yHAOWnES3zcUm2D4jz8Udjv0kk53"
+                admission_year:null,
+                branch:null,
+                displayName:null,
+                email:null,
+                fbUid:null,
+                photoURL:null,
+                uid:null
             }
         };
 
@@ -53,11 +53,9 @@ class MsgMain extends Component {
 
         let LocalStorageUserRef = localStorage.getItem('user');
 
-        const localUser = JSON.parse(LocalStorageUserRef);
-
-        console.log(_.every(this.state.contacts, (elem) => { console.log(elem.fbUid,' vs ', localUser.fbUid ); return elem.fbUid === localUser.fbUid}));
-
         if(LocalStorageUserRef){
+            const localUser = JSON.parse(LocalStorageUserRef);
+            console.log('user already exist?',_.every(this.state.contacts, (elem) => { console.log(elem.fbUid,' vs ', localUser.fbUid ); return elem.fbUid === localUser.fbUid}));
             this.setState({
                 user: JSON.parse(LocalStorageUserRef),
                 userRegistrationConfirm: true
@@ -73,7 +71,6 @@ class MsgMain extends Component {
 
     componentWillUnmount(){
         base.removeBinding(this.ref);
-    }
     }
 
     updatePreview(e,key){
@@ -115,7 +112,7 @@ class MsgMain extends Component {
         // console.log('Full user data gathered: ' ,_.every(this.state.user, function(elem) { return elem !== null; }));
         if(!(this.state.userRegistrationConfirm)){
             return(
-                <div>
+                <div className="h-full">
                     <div className="login-wrap">
                         <Login user={this.state.user}
                                updateRegistrationData={this.updateRegistrationData}
@@ -128,9 +125,9 @@ class MsgMain extends Component {
             )
         }else{
             return (
-                <div>
+                <div className="h-full">
                     <div className="contain-all">
-                        <Header />
+                        <Header search={this.state.search} updateSearch={this.updateSearch}/>
                         <ContactTabs contacts={this.state.contacts}
                                      preview={this.state.preview}
                                      search={this.state.search}
@@ -144,7 +141,7 @@ class MsgMain extends Component {
     }
     renderError(){
         return(
-            <div id="error">
+            <div id="error" className="h-full">
                 <h4>Sorry but this site should only be visited on mobile devices..</h4>
                 <span><i>and also this is an alpha version.</i></span>
 

@@ -19,10 +19,6 @@ class ContactTab extends Component {
     renderSmallDp(key, i){
         const person = this.props.contacts[key];
 
-        const backgroundStyle = {
-            backgroundImage: "url("+ person.image +")"
-        };
-
         return(
             <div key={key}
                 className={` ${( i===0 ? ' clicked ' : '')} small-dp `} 
@@ -37,7 +33,7 @@ class ContactTab extends Component {
         //The array of filtered element keys
         let filteredContact = Object.keys(this.props.contacts).filter(
             (key) => {
-                return this.props.contacts[key].name.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1;
+                return this.props.contacts[key].displayName.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1;
             }
         );
         return (
@@ -59,7 +55,7 @@ class ContactTab extends Component {
                         transitionName="preview"
                         transitionEnterTimeout={600}
                         transitionLeaveTimeout={1000}>
-                            <Preview key={ this.props.preview.name } updatePreview={this.props.updatePreview} preview={this.props.preview} />
+                            <Preview key={ this.props.preview.displayName } updatePreview={this.props.updatePreview} preview={this.props.preview} />
                     </CSSTransitionGroup>
                 </div>
             </div>

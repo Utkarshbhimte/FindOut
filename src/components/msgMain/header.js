@@ -11,7 +11,7 @@ class Header extends Component {
         return (
             <header>
                 <h4>FindOut@RNSIT</h4>
-                <Navbar />
+                <Navbar search={this.props.search} updateSearch={this.props.updateSearch}/>
             </header>
         );
     }

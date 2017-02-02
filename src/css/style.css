@@ -274,6 +274,7 @@ header {
   text-align: center;
   padding: 1em 0 0.3em;
   height: 15%;
+}
 header h4 {
   margin: 0;
 }
@@ -293,10 +294,6 @@ nav span {
   text-align: center;
   color: #c3c3c3;
 }
-.contacts-tab-wrap {
-  height: 86%;
-}
-.contacts-tab-wrap .contacts-tab {
 nav input {
   display: block;
   outline: none;
@@ -308,7 +305,10 @@ nav input {
   font-size: 0.8em;
   color: #000;
 }
-.contacts-tab {
+.contacts-tab-wrap {
+  height: 86%;
+}
+.contacts-tab-wrap .contacts-tab {
   overflow-scrolling: touch;
   height: 110px;
   white-space: nowrap;
@@ -324,16 +324,6 @@ nav input {
   height: 70px;
   display: inline-block;
   overflow: hidden;
-  opacity: 0.5;
-  -webkit-transition: 0.2s opacity ease-in-out;
-  transition: 0.2s opacity ease-in-out;
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
-.contacts-tab .small-dp.clicked {
-  opacity: 1;
 }
 .contacts-tab-wrap .contacts-tab .small-dp img {
   height: auto;
@@ -345,9 +335,12 @@ nav input {
   display: none;
 }
 .preview-wrap {
-  position: relative;
   width: 100%;
   overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70.5vh;
 }
 .preview-wrap .preview {
   height: 71.5vh;
@@ -451,7 +444,7 @@ nav input {
   width: 100%;
 }
 .login-wrap .login-step-three .confirm-wrap {
-  height: 20vh;
+  height: 25vh;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -475,7 +468,7 @@ nav input {
   display: block;
 }
 .login-wrap .login-step-three .preview-wrap {
-  height: 80vh;
+  height: 75vh;
 }
 #error {
   display: none;
@@ -502,4 +495,7 @@ nav input {
         -ms-flex-align: center;
             align-items: center;
   }
+}
+.h-full {
+  height: 100%;
 }
